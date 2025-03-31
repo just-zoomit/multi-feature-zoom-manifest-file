@@ -29,9 +29,9 @@
                   feedback-link="https://devforum.zoom.us/c/zoom-apps">
     
       <google-codelab-step label="Before you begin" duration="0">
-        <p>This feature requires a paid plan and manifest beta program access.</p>
+        <p> This feature requires a paid plan and manifest beta program access. </p>
 <p>If you don&#39;t have a paid workspace for development, you can join the <a href="https://api.slack.com/developer-program" target="_blank">Developer Program</a> and provision a sandbox with access to all Zoom Developer platform features for free.</p>
-<p><strong>App manifests</strong></p>
+<h2 is-upgraded>App manifests</h2>
 <p>App manifests are <code>JSON</code> files that contain the configuration for Zoom Marketplace Apps.</p>
 <h2 is-upgraded>Manifest schema</h2>
 <p>Manifests are written in JSON using a specific structure. Here is an example of what one might look for Zoom Team ChatBot.</p>
@@ -223,7 +223,9 @@
 }
 
 </code></pre>
-<p>Make PUT API request with to Update an App by manifest endpoint:</p>
+<ol type="1" start="6">
+<li>Make PUT API request with to Update an App by manifest endpoint:</li>
+</ol>
 <pre><code language="language-javascript" class="language-javascript">PUT /marketplace/apps/{appId}/manifest
 
 </code></pre>
