@@ -78,17 +78,17 @@
 <li>Select User-managed App. This allows individual users to install and authorize your app to access their Zoom data — similar to apps accessing a user&#39;s Google Drive or Gmail</li>
 </ul>
 </li>
-<li>Configure Basic App Information</li>
-</ol>
-<ul>
+<li>Configure Basic App Information<ul>
 <li>On the &#34;Basic Information&#34; page:</li>
 <li>Scroll down to the Redirect URL for OAuth section. For testing with Postman, add the Postman redirect URI:</li>
 </ul>
+</li>
+</ol>
 <pre><code language="language-bash" class="language-bash">https://oauth.pstmn.io/v1/callback
 
 </code></pre>
 <ol type="1" start="6">
-<li>Get App ID from URL: [INSERT image]</li>
+<li>Get App ID from URL: <img alt="App ID" src="img/5894b1561e50b78c.png"></li>
 <li>Make a PATCH Request (Test with Postman)</li>
 </ol>
 <ul>
@@ -105,7 +105,7 @@
 </ul>
 </li>
 </ul>
-<p>** Example Postman setup:**</p>
+<p><strong>Example Postman setup:</strong></p>
 <pre><code language="language-javascript" class="language-javascript">{
   &#34;manifest&#34;: {
     &#34;display_information&#34;: {
