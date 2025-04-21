@@ -92,22 +92,20 @@
 <li>Make a PATCH Request (Test with Postman)</li>
 </ol>
 <ul>
-<li>Now that your app is configured, you can test it by making a PATCH request to Zoom&#39;s API.<ul>
+<li>Now that your app is configured, you can test it by making a PATCH request to Zoom&#39;s API. <ul>
 <li>Use the PATCH method to update your app metadata, description, etc.</li>
 <li>Method: PATCH<ul>
 <li>URL: https://api.zoom.us/v2/marketplace/apps/&lt;APP_ID&gt;</li>
 <li>Headers:</li>
 <li>Authorization: Bearer &lt;YOUR_ACCESS_TOKEN&gt;</li>
 <li>Content-Type: application/json</li>
+<li>Body:</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Body:<ul>
-<li>Example Postman setup:</li>
 </ul>
-</li>
-</ul>
+<p>** Example Postman setup:**</p>
 <pre><code language="language-javascript" class="language-javascript">{
   &#34;manifest&#34;: {
     &#34;display_information&#34;: {
