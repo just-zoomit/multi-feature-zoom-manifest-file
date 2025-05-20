@@ -48,9 +48,9 @@
       </google-codelab-step>
     
       <google-codelab-step label="What you&#39;ll learn" duration="0">
-        <p>✓ How to structure and configure the manifest json to define your app&#39;s properties and integration points with Zoom</p>
-<p>✓ How to implement secure API communication by configuring proper OAuth scopes and webhook endpoints</p>
-<p>✓ How to understand how to manage manifest versioning to maintain your app&#39;s functionality when making updates</p>
+        <p>✓ How to structure and configure the manifest JSON to define your app&#39;s properties and integration points with Zoom.</p>
+<p>✓ How to implement secure API communication by configuring proper OAuth scopes and webhook endpoints.</p>
+<p>✓ How to manage manifest versioning to maintain your app&#39;s functionality during updates.</p>
 <h2 is-upgraded>What you&#39;ll Need</h2>
 <ul>
 <li>Git</li>
@@ -60,30 +60,24 @@
 </ul>
 <h2 is-upgraded>Prerequisites</h2>
 <ul>
-<li>You have a Zoom account.</li>
-<li>You are either the: <ul>
-<li>Zoom account owner, or</li>
-<li>Account admin, or</li>
-<li>Have been assigned the Zoom for developers role.</li>
-</ul>
-</li>
-<li>A development workspace where you have permissions to install apps.</li>
-<li>You have experience <a href="https://developers.zoom.us/docs/build-flow/create-oauth-apps/" target="_blank">creating apps</a> in the Zoom Marketplace.</li>
+<li>A Zoom account with developer role permissions</li>
+<li>A development workspace with permissions to install apps</li>
+<li>Experience <a href="https://developers.zoom.us/docs/build-flow/create-oauth-apps/" target="_blank">creating apps</a> in the Zoom App Marketplace</li>
 </ul>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Overview: App manifests" duration="0">
-        <p>App manifests are <code>JSON</code> files that contain the configuration for Zoom Marketplace Apps.</p>
+        <p>App manifests are JSON files that define the configuration of Zoom App Marketplace apps.</p>
 <h2 is-upgraded>Manifest schema</h2>
-<p>Manifests are JSON-formatted files that contain the configuration for Zoom Apps. With a manifest, you can use the Marketplace build-flow or an API to create a general app with a pre-defined configuration or adjust the configuration of existing general apps. Manifests are also portable, so you can share and reuse them.</p>
+<p>Manifests are JSON-formatted configuration files for Zoom Apps. You can use a manifest to create a general app via the Marketplace build flow or API, or to update the configuration of an existing general app. Manifests are portable, allowing you to share and reuse them across environments.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Create a Zoom General User-level OAuth app" duration="0">
-        <p>In this section, you&#39;ll create a user-managed Zoom Marketplace General App and configure it with Zoom App and Team Chatbot features.</p>
+        <p>In this section, you will create a user-managed Zoom App Marketplace general app and configure it with Zoom App and Team Chatbot features.</p>
 <h2 is-upgraded>Create your App: How to Create and Configure a Zoom App (User-Managed) with the Manifest API</h2>
 <ol type="1">
 <li>Visit the Zoom App Marketplace<ul>
@@ -115,21 +109,17 @@
 </code></pre>
 <ol type="1" start="6">
 <li>Get App ID from URL: <img alt="App ID" src="img/5894b1561e50b78c.png"></li>
-<li>Make a PATCH Request (Test with Postman)</li>
+<li>Make a PATCH request to update the app (test with Postman). After configuring the app, test it by sending a PATCH request to Zoom&#39;s API to update your app metadata or description.</li>
 </ol>
 <ul>
-<li>Now that your app is configured, you can test it by making a PATCH request to Zoom&#39;s API. <ul>
-<li>Use the PATCH method to update your app metadata, description, etc.</li>
-<li>Method: PATCH<ul>
-<li>URL: https://api.zoom.us/v2/marketplace/apps/&lt;APP_ID&gt;</li>
-<li>Headers:</li>
+<li><strong>Method:</strong> PATCH</li>
+<li><strong>URL:</strong> https://api.zoom.us/v2/marketplace/apps/&lt;APP_ID&gt;</li>
+<li><strong>Headers:</strong><ul>
 <li>Authorization: Bearer &lt;YOUR_ACCESS_TOKEN&gt;</li>
 <li>Content-Type: application/json</li>
-<li>Body:</li>
 </ul>
 </li>
-</ul>
-</li>
+<li><strong>Body:</strong></li>
 </ul>
 <p><strong>Example Postman setup:</strong></p>
 <pre><code language="language-javascript" class="language-javascript">{
@@ -274,13 +264,26 @@
       </google-codelab-step>
     
       <google-codelab-step label="Create your App: Upload Manifest JSON file" duration="8">
-        <ol type="1">
+        <h3 is-upgraded>1. Access the Zoom App Marketplace</h3>
+<ul>
 <li>Navigate to the <a href="https://marketplace.zoom.us/" target="_blank">Zoom App Marketplace</a> and select General App.</li>
-<li>Select a method of opening the manifest: in the persistent menu bar, or on the <strong>Basic Information</strong> page.</li>
-<li>Select the download icon to download the manifest file to your local system.</li>
-<li>You can now open the manifest JSON file on your local system and update the app&#39;s fields and attributes.</li>
-<li>Copy the contents below and using a tool like Postman, paste the JSON in the request body.</li>
-</ol>
+</ul>
+<h3 is-upgraded>2. Open the manifest editor</h3>
+<ul>
+<li>In your app configuration, open the manifest via the persistent menu bar or from the <strong>Basic Information</strong> page.</li>
+</ul>
+<h3 is-upgraded>3. Download the manifest file</h3>
+<ul>
+<li>Click the download icon to save the manifest JSON file to your local system.</li>
+</ul>
+<h3 is-upgraded>4. Edit the manifest file locally</h3>
+<ul>
+<li>Open the downloaded JSON file in a code editor and update the relevant fields and attributes as needed.</li>
+</ul>
+<h3 is-upgraded>5. Upload the updated manifest via API</h3>
+<ul>
+<li>Copy the updated JSON content and, using a tool like Postman, paste it into the request body for a PATCH request to the app&#39;s endpoint.</li>
+</ul>
 <pre><code language="language-javascript" class="language-javascript">{
     &#34;display_information&#34;: {
         &#34;description&#34;: &#34;description&#34;,
@@ -442,7 +445,7 @@
 }
 
 </code></pre>
-<ol type="1" start="6">
+<ol type="1">
 <li>Make PUT API request with to Update an App by manifest endpoint:</li>
 </ol>
 <pre><code language="language-javascript" class="language-javascript">PUT /marketplace/apps/{appId}/manifest
@@ -456,8 +459,9 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Conclusion" duration="0">
-        <p>Congratulations! You learned how to build a multi-feature Zoom App with a Manifest file:</p>
+      <google-codelab-step label="Next steps" duration="0">
+        <p>Congratulations! You have successfully built a multi-feature Zoom app using a manifest file.</p>
+<p>To continue learning and extend your app&#39;s capabilities, explore the following resources:</p>
 <h3 is-upgraded>Learn more</h3>
 <ul>
 <li><a href="https://developers.zoom.us/docs/zoom-apps/" target="_blank">Getting started with Zoom App</a></li>
